@@ -66,7 +66,6 @@ var swiperTestimoniMain = new Swiper('.swiper-testimoni-main', {
 var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
   loop: true,
   spaceBetween: 20,
-  // [DIUBAH] Menggunakan breakpoints untuk mengatur jumlah slide
   slidesPerView: 1,
   breakpoints: {
     640: {
@@ -78,12 +77,10 @@ var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
       spaceBetween: 30
     }
   },
-  speed: 8000,
   autoplay: {
-    delay: 1,
+    delay: 4000,
     disableOnInteraction: false,
     pauseOnMouseEnter: true,
-  },
-  allowTouchMove: false,
+  }
 });
 
