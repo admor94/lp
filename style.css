@@ -449,13 +449,17 @@ body {
 /* 9. Testimoni Section */
 #landingpage-edukrein .testimoni-section {
   padding: 5rem 0;
+  overflow: hidden; /* Mencegah elemen keluar batas */
 }
 
+/* [DIUBAH] Latar belakang kartu utama menjadi gelap */
 #landingpage-edukrein .testi-card {
-  background-color: var(--ds-tertiary-bg);
+  background-color: var(--ds-dark);
+  color: var(--ds-white);
   border-radius: var(--ds-border-radius-xl);
-  padding: 2rem;
+  padding: 2.5rem;
   border: 1px solid var(--ds-border-color);
+  height: 100%;
 }
 
 #landingpage-edukrein .testi-quote {
@@ -487,10 +491,16 @@ body {
   font-weight: 700;
 }
 
+#landingpage-edukrein .testi-job {
+  color: var(--ds-tertiary-color);
+}
+
+/* Tombol Navigasi Slider Utama */
 #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next,
 #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
-  top: 50%;
-  transform: translateY(-50%);
+  top: auto;
+  bottom: 0;
+  transform: translateY(0);
   color: var(--ds-primary);
   background-color: rgba(255, 255, 255, 0.9);
   width: 44px;
@@ -515,36 +525,39 @@ body {
 }
 
 #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
-  left: -22px;
+  left: auto;
+  right: 54px;
 }
 
 #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next {
-  right: -22px;
+  right: 0;
 }
 
 /* 10. Slider Testimoni Otomatis (Marquee) */
 #landingpage-edukrein .testimoni-marquee-section {
-  padding: 1.5rem 0;
+  padding: 1rem 0; /* Mengurangi padding vertikal */
   background-color: var(--ds-tertiary-bg);
   border-top: 1px solid var(--ds-border-color);
   border-bottom: 1px solid var(--ds-border-color);
-  overflow: hidden; /* Mencegah slide keluar dari batas */
+  overflow: hidden;
 }
 
 #landingpage-edukrein .swiper-testimoni-marquee .swiper-slide {
     width: auto; /* Penting untuk marquee effect */
 }
 
+/* [DIUBAH] Kartu marquee dibuat agar teks bisa wrap */
 #landingpage-edukrein .testi-card-marquee {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1.25rem;
-  background-color: var(--ds-body-bg); /* Warna dasar kartu */
-  border-radius: var(--ds-border-radius-pill);
+  flex-direction: column; /* Konten tersusun vertikal */
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background-color: var(--ds-body-bg);
+  border-radius: var(--ds-border-radius-lg);
   box-shadow: var(--ds-box-shadow-sm);
-  border-left: 5px solid var(--ds-secondary); /* Garis aksen di kiri */
-  width: auto; /* Lebar kartu menyesuaikan konten */
+  border-left: 5px solid var(--ds-secondary);
+  height: 100%;
+  width: 320px; /* [BARU] Memberi lebar tetap pada kartu */
 }
 
 #landingpage-edukrein .testi-card-marquee .testi-quote {
@@ -552,11 +565,17 @@ body {
   margin-bottom: 0;
   font-size: 0.9rem;
   font-style: normal;
-  white-space: nowrap; /* Mencegah teks turun baris */
+  white-space: normal; /* [DIUBAH] Mengizinkan teks untuk wrap */
+  flex-grow: 1;
 }
 
 #landingpage-edukrein .testi-card-marquee .testi-quote::before {
   display: none;
+}
+
+#landingpage-edukrein .testi-card-marquee .testi-user {
+  margin-top: auto;
+  width: 100%;
 }
 
 #landingpage-edukrein .testi-card-marquee .testi-user img {
@@ -567,12 +586,27 @@ body {
 #landingpage-edukrein .testi-card-marquee .testi-name {
   font-size: 0.9rem;
   font-weight: 600;
-  white-space: nowrap;
 }
 
 #landingpage-edukrein .testi-card-marquee .badge {
     font-size: .65rem;
-    white-space: nowrap;
 }
 
+/* [BARU] Penyesuaian untuk Tampilan Mobile */
+@media (max-width: 991.98px) {
+  /* Menyembunyikan panah di slider utama */
+  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next,
+  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
+    display: none;
+  }
+
+  #landingpage-edukrein .testimoni-section {
+    padding: 3rem 0; /* Mengurangi padding di mobile */
+  }
+
+  /* Mengurangi lebar kartu marquee di mobile */
+  #landingpage-edukrein .testi-card-marquee {
+    width: 280px;
+  }
+}
 
