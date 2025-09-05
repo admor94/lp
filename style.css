@@ -445,3 +445,97 @@ body {
 #landingpage-edukrein .price-features .fa-times {
   color: var(--ds-red);
 }
+
+/* 9. Testimoni Section */
+#landingpage-edukrein .testimoni-section {
+  padding: 5rem 0;
+}
+
+#landingpage-edukrein .testi-card {
+  background-color: var(--ds-tertiary-bg);
+  border-radius: var(--ds-border-radius-xl);
+  padding: 2rem;
+  border: 1px solid var(--ds-border-color);
+}
+
+#landingpage-edukrein .testi-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+#landingpage-edukrein .testi-quote::before {
+  content: '“';
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+  font-size: 2.5rem;
+  color: var(--ds-secondary);
+  font-family: 'Nunito', sans-serif;
+  opacity: 0.8;
+}
+
+#landingpage-edukrein .testi-user img {
+  width: 60px;
+  height: 60px;
+}
+
+#landingpage-edukrein .testi-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next,
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
+  top: auto;
+  bottom: 0;
+  transform: translateY(0);
+}
+
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
+  right: 50px;
+  left: auto;
+}
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next {
+  right: 0;
+}
+
+/* 10. Slider Testimoni Otomatis */
+#landingpage-edukrein .testimoni-marquee-section {
+  padding: 2rem 0;
+  background-color: var(--ds-tertiary-bg);
+  border-top: 1px solid var(--ds-border-color);
+  border-bottom: 1px solid var(--ds-border-color);
+}
+
+#landingpage-edukrein .testi-card-marquee {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--ds-body-bg);
+  border-radius: var(--ds-border-radius-pill);
+}
+
+#landingpage-edukrein .testi-card-marquee .testi-quote {
+  padding-left: 0;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  font-style: normal;
+  white-space: nowrap;
+}
+#landingpage-edukrein .testi-card-marquee .testi-quote::before {
+  display: none;
+}
+
+#landingpage-edukrein .testi-card-marquee .testi-user img {
+  width: 30px;
+  height: 30px;
+}
+
+#landingpage-edukrein .testi-card-marquee .testi-name {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
