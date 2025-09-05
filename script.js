@@ -50,3 +50,29 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
+// ... kode Swiper Produk yang sudah ada ...
+    
+    // [BARU] Inisialisasi Swiper Slider untuk Testimoni Utama
+    var swiperTestimoniMain = new Swiper('.swiper-testimoni-main', {
+      loop: true,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: '.swiper-testimoni-wrapper .swiper-button-next',
+        prevEl: '.swiper-testimoni-wrapper .swiper-button-prev',
+      },
+    });
+
+    // [BARU] Inisialisasi Swiper Slider untuk Testimoni Marquee
+    var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
+      loop: true,
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      speed: 5000, // Kecepatan slide bergerak
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      allowTouchMove: false, // Nonaktifkan swipe manual
+    });
+
