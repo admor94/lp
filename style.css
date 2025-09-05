@@ -347,3 +347,64 @@ body {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
 }
+
+/* 8. Harga Section */
+#landingpage-edukrein .harga-section {
+  padding: 5rem 0;
+}
+
+#landingpage-edukrein .price-card {
+  border: var(--ds-border-width) solid var(--ds-border-color);
+  border-radius: var(--ds-border-radius-xl);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#landingpage-edukrein .price-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--ds-box-shadow-lg) !important;
+}
+
+#landingpage-edukrein .price-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+}
+
+#landingpage-edukrein .price-subtitle {
+  color: var(--ds-secondary-color);
+  min-height: 42px; /* Agar tinggi subtitle sama */
+}
+
+#landingpage-edukrein .price-tag .price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+}
+
+#landingpage-edukrein .price-features {
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+#landingpage-edukrein .price-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+#landingpage-edukrein .price-features i {
+  font-size: 1.2rem;
+}
+
+#landingpage-edukrein .price-features .fa-check {
+  color: var(--ds-green);
+}
+
+#landingpage-edukrein .price-features .fa-times {
+  color: var(--ds-red);
+}
+
+#landingpage-edukrein .price-card.professional {
+  border-color: var(--ds-secondary);
+  border-width: 2px;
+}
