@@ -84,3 +84,20 @@ var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
     pauseOnMouseEnter: true,
   }
 });
+
+// 5. [BARU] Menangani Pengiriman Form Kontak
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // PENTING: Untuk membuat form ini benar-benar mengirim email,
+    // Anda perlu menggunakan layanan pihak ketiga seperti Formspree, Netlify Forms,
+    // atau membuat backend Anda sendiri.
+    
+    // Kode di bawah ini hanya simulasi.
+    alert('Terima kasih! Pesan Anda akan segera kami proses.');
+    contactForm.reset();
+  });
+}
+
+
