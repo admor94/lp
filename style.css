@@ -491,7 +491,7 @@ body {
 }
 
 #landingpage-edukrein .testi-job {
-   color: var(--ds-tertiary-color);
+  color: rgba(255, 255, 255, 0.7); /* DIUBAH: Dibuat lebih terang dan sedikit transparan */
 }
 
 /* [DIUBAH] Tombol Navigasi Slider Utama tanpa background */
