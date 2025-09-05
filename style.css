@@ -293,3 +293,18 @@ body {
   padding: 0 1rem 1.5rem;
   line-height: 1.7;
 }
+
+/* [BARU] Penyesuaian untuk layar kecil */
+@media (max-width: 767.98px) {
+  #landingpage-edukrein .faq-section .accordion-button {
+    padding: 1rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  #landingpage-edukrein .faq-section .accordion-button::after {
+    font-size: 1.5rem;
+  }
+  #landingpage-edukrein .faq-section .accordion-body {
+    padding: 0 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
