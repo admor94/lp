@@ -615,3 +615,14 @@ body {
     white-space: nowrap;
 }
 
+/* 10. Slider Testimoni Otomatis - Tambahan Warna */
+#landingpage-edukrein .testi-card-marquee {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--ds-body-bg); /* Warna dasar */
+  border-radius: var(--ds-border-radius-pill);
+  box-shadow: var(--ds-box-shadow-sm);
+  border-left: 5px solid var(--ds-secondary); /* Garis aksen di kiri */
+}
