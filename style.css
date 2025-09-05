@@ -464,7 +464,7 @@ body {
 
 #landingpage-edukrein .testi-produk {
   display: block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-style: italic;
   opacity: 0.8;
   font-size: 0.9rem;
@@ -476,7 +476,7 @@ body {
   margin-bottom: 2rem;
   position: relative;
   padding-left: 2rem;
-  flex-grow: 1; /* Mendorong user info ke bawah */
+  flex-grow: 1;
 }
 
 #landingpage-edukrein .testi-quote::before {
@@ -490,8 +490,16 @@ body {
   opacity: 0.8;
 }
 
+#landingpage-edukrein .testi-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 #landingpage-edukrein .testi-user {
-  margin-top: auto; /* Memastikan rata bawah */
+  display: flex;
+  align-items: center;
 }
 
 #landingpage-edukrein .testi-user img {
@@ -510,40 +518,52 @@ body {
   font-size: 0.9rem;
 }
 
-/* [DIUBAH] Navigasi menjadi pagination dots */
-#landingpage-edukrein .swiper-testimoni-main .swiper-pagination {
-  position: static;
-  margin-top: 1.5rem;
-  text-align: right;
+/* Tombol Navigasi Slider Utama */
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next,
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
+  color: var(--ds-white);
+  background-color: transparent;
+  width: 44px;
+  height: 44px;
+  margin-top: -22px; /* Setengah dari tinggi */
 }
 
-#landingpage-edukrein .swiper-testimoni-main .swiper-pagination-bullet {
-  background-color: var(--ds-secondary);
-  opacity: 0.3;
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next:after,
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev:after {
+  content: none;
 }
 
-#landingpage-edukrein .swiper-testimoni-main .swiper-pagination-bullet-active {
-  opacity: 1;
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next .svg-icon,
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev .svg-icon {
+    width: 2rem;
+    height: 2rem;
+    fill: currentColor;
+    transition: color .2s;
 }
 
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next:hover,
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev:hover {
+    color: var(--ds-secondary);
+}
 
-/* 10. Slider Testimoni Otomatis */
+/* Slider Testimoni Otomatis */
 #landingpage-edukrein .testimoni-marquee-section {
   padding: 2.5rem 0;
-  background-color: transparent; /* Sesuai latar belakang blog */
-  border: none;
+  background-color: var(--ds-primary);
+  border-top: 1px solid var(--ds-border-color);
+  border-bottom: 1px solid var(--ds-border-color);
   overflow: hidden;
 }
 
 #landingpage-edukrein .swiper-testimoni-marquee .swiper-slide {
-    height: auto; /* Agar tinggi kartu konsisten */
+    height: auto;
 }
 
 #landingpage-edukrein .testi-card-marquee {
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  background-color: var(--ds-body-bg); /* [DIUBAH] Latar belakang transparan (mengikuti body) */
+  background-color: var(--ds-body-bg);
   border-radius: var(--ds-border-radius-lg);
   box-shadow: var(--ds-box-shadow);
   border-left: 4px solid var(--ds-secondary);
@@ -579,21 +599,14 @@ body {
   color: var(--ds-tertiary-color);
 }
 
-
 /* Penyesuaian untuk Tampilan Mobile */
 @media (max-width: 991.98px) {
+  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next,
+  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
+    display: none;
+  }
+
   #landingpage-edukrein .testimoni-section {
     padding: 3rem 0;
   }
-  /* Mengatur agar gambar pindah ke atas */
-  #landingpage-edukrein .testimoni-section .order-lg-1 { order: -1; }
-
-  #landingpage-edukrein .testi-card {
-    padding: 1.5rem;
-  }
-
-  #landingpage-edukrein .swiper-testimoni-main .swiper-pagination {
-    text-align: center;
-  }
 }
-
