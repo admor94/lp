@@ -66,6 +66,7 @@ var swiperTestimoniMain = new Swiper('.swiper-testimoni-main', {
 var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
   loop: true,
   spaceBetween: 20,
+  // [DIUBAH] Menggunakan breakpoints untuk mengatur jumlah slide
   slidesPerView: 1,
   breakpoints: {
     640: {
