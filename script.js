@@ -76,16 +76,26 @@ document.addEventListener("DOMContentLoaded", function() {
       allowTouchMove: false, // Nonaktifkan swipe manual
     });
 
-// [BARU] Inisialisasi Swiper Slider untuk Testimoni Marquee
+// [DIUBAH] Inisialisasi Swiper Slider untuk Testimoni Bawah
 var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
   loop: true,
-  slidesPerView: 'auto',
   spaceBetween: 20,
-  speed: 8000, // Durasi animasi lebih lambat agar terlihat halus
-  autoplay: {
-    delay: 1, // Jeda 1 milidetik antar transisi
-    disableOnInteraction: false,
-    pauseOnMouseEnter: true, // Berhenti saat kursor di atasnya
+  // Menentukan jumlah slide yang terlihat di berbagai ukuran layar
+  slidesPerView: 1,
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    }
   },
-  allowTouchMove: false,
+  // Mengaktifkan pagination (titik-titik)
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
 });
+
