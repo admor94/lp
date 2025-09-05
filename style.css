@@ -351,17 +351,35 @@ body {
 /* 8. Harga Section */
 #landingpage-edukrein .harga-section {
   padding: 5rem 0;
+  background-color: var(--ds-tertiary-bg, #f8f9fa);
 }
 
 #landingpage-edukrein .price-card {
-  border: var(--ds-border-width) solid var(--ds-border-color);
+  border: none;
   border-radius: var(--ds-border-radius-xl);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 #landingpage-edukrein .price-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--ds-box-shadow-lg) !important;
+}
+
+#landingpage-edukrein .price-card .card-header {
+  background-color: var(--ds-dark);
+  color: var(--ds-white);
+  border-bottom: 4px solid var(--ds-purple);
+}
+
+#landingpage-edukrein .price-card.popular .card-header {
+  background-color: var(--ds-green);
+  border-bottom-color: var(--ds-yellow);
+}
+
+#landingpage-edukrein .price-card.professional .card-header {
+  background-color: var(--ds-dark);
+  border-bottom-color: var(--ds-red);
 }
 
 #landingpage-edukrein .price-title {
@@ -370,19 +388,43 @@ body {
 }
 
 #landingpage-edukrein .price-subtitle {
-  color: var(--ds-secondary-color);
+  color: rgba(255, 255, 255, 0.8);
   min-height: 42px; /* Agar tinggi subtitle sama */
+}
+
+#landingpage-edukrein .price-tag {
+  color: var(--ds-heading-color);
+}
+
+#landingpage-edukrein .price-tag .price-original {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: line-through;
+  opacity: 0.7;
 }
 
 #landingpage-edukrein .price-tag .price {
   font-size: 2.5rem;
   font-weight: 800;
   font-family: 'Nunito', sans-serif;
+  line-height: 1;
+}
+
+#landingpage-edukrein .price-tag .price-off {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: .5rem;
+  border-radius: var(--ds-border-radius-sm);
+  background-color: var(--ds-red-bg-subtle);
+  color: var(--ds-red-text-emphasis);
+  line-height: 1;
 }
 
 #landingpage-edukrein .price-features {
   padding: 0;
-  margin: 0 0 1.5rem;
+  margin: 1.5rem 0;
+  text-align: left;
 }
 
 #landingpage-edukrein .price-features li {
@@ -402,9 +444,4 @@ body {
 
 #landingpage-edukrein .price-features .fa-times {
   color: var(--ds-red);
-}
-
-#landingpage-edukrein .price-card.professional {
-  border-color: var(--ds-secondary);
-  border-width: 2px;
 }
