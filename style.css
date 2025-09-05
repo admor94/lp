@@ -569,22 +569,40 @@ body {
   right: -22px;
 }
 
-/* 10. Slider Testimoni Otomatis */
-#landingpage-edukrein .testimoni-marquee-section {
-  padding: 1.5rem 0; /* Jarak atas dikurangi */
-  background-color: var(--ds-tertiary-bg);
-  border-top: 1px solid var(--ds-border-color);
-  border-bottom: 1px solid var(--ds-border-color);
-}
-
+/* 10. Slider Testimoni Otomatis - Tambahan Warna */
 #landingpage-edukrein .testi-card-marquee {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1.25rem;
-  background-color: var(--ds-body-bg);
+  background-color: var(--ds-body-bg); /* Warna dasar */
   border-radius: var(--ds-border-radius-pill);
   box-shadow: var(--ds-box-shadow-sm);
+  border-left: 5px solid var(--ds-secondary); /* Garis aksen di kiri */
+}
+
+/* 10. Slider Testimoni Bawah (Revisi) */
+#landingpage-edukrein .testimoni-marquee-section {
+  padding: 1.5rem 0 3rem; /* Jarak atas dikurangi, bawah ditambah untuk pagination */
+  background-color: var(--ds-tertiary-bg);
+  border-top: 1px solid var(--ds-border-color);
+  border-bottom: 1px solid var(--ds-border-color);
+}
+
+#landingpage-edukrein .swiper-testimoni-marquee .swiper-slide {
+  height: auto; /* Memastikan tinggi slide menyesuaikan konten */
+}
+
+#landingpage-edukrein .testi-card-marquee {
+  display: flex;
+  flex-direction: column; /* Mengubah susunan menjadi vertikal */
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: var(--ds-body-bg);
+  border-radius: var(--ds-border-radius-lg);
+  box-shadow: var(--ds-box-shadow-sm);
+  border-left: 5px solid var(--ds-secondary);
+  height: 100%; /* Memastikan semua kartu memiliki tinggi yang sama */
 }
 
 #landingpage-edukrein .testi-card-marquee .testi-quote {
@@ -592,11 +610,17 @@ body {
   margin-bottom: 0;
   font-size: 0.9rem;
   font-style: normal;
-  white-space: nowrap;
+  white-space: normal; /* Mengizinkan teks untuk wrap */
+  flex-grow: 1; /* Membuat area kutipan mengisi ruang kosong */
 }
 
 #landingpage-edukrein .testi-card-marquee .testi-quote::before {
   display: none;
+}
+
+#landingpage-edukrein .testi-card-marquee .testi-user {
+  margin-top: auto; /* Mendorong user info ke bagian bawah kartu */
+  width: 100%;
 }
 
 #landingpage-edukrein .testi-card-marquee .testi-user img {
@@ -611,18 +635,7 @@ body {
 }
 
 #landingpage-edukrein .testi-card-marquee .badge {
-    font-size: .65rem;
-    white-space: nowrap;
+  font-size: .65rem;
+  white-space: nowrap;
 }
 
-/* 10. Slider Testimoni Otomatis - Tambahan Warna */
-#landingpage-edukrein .testi-card-marquee {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1.25rem;
-  background-color: var(--ds-body-bg); /* Warna dasar */
-  border-radius: var(--ds-border-radius-pill);
-  box-shadow: var(--ds-box-shadow-sm);
-  border-left: 5px solid var(--ds-secondary); /* Garis aksen di kiri */
-}
