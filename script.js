@@ -53,38 +53,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // ... kode Swiper Produk yang sudah ada ...
 
-
 // Inisialisasi Swiper Slider untuk Testimoni Utama
 var swiperTestimoniMain = new Swiper('.swiper-testimoni-main', {
   loop: true,
-  // [DIUBAH] Mengganti navigasi panah dengan pagination
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
 });
 
-// Inisialisasi Swiper Slider untuk Testimoni Bawah (Otomatis)
+// Inisialisasi Swiper Slider untuk Testimoni Bawah (Marquee)
 var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
   loop: true,
   spaceBetween: 20,
-  centeredSlides: true, // [DIUBAH] Membuat slide berhenti di tengah
-  // [DIUBAH] Menggunakan breakpoints untuk mengatur jumlah slide
-  slidesPerView: 1.5, // Tampilan default untuk mobile
+  centeredSlides: true,
+  slidesPerView: 1.5,
   breakpoints: {
-    768: { // Tablet
+    768: {
       slidesPerView: 2,
       spaceBetween: 20
     },
-    1024: { // Desktop
+    1024: {
       slidesPerView: 3,
       spaceBetween: 30
     }
   },
   autoplay: {
-    delay: 3000,
+    delay: 4000,
     disableOnInteraction: false,
     pauseOnMouseEnter: true,
   }
 });
-
