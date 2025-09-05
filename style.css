@@ -651,3 +651,49 @@ body {
   color: var(--ds-primary);
   transform: translateY(-3px);
 }
+
+/* 12. Statistik Section */
+#landingpage-edukrein .statistik-section {
+  padding: 3rem 0;
+  background-color: var(--ds-dark);
+  color: var(--ds-white);
+}
+
+#landingpage-edukrein .stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#landingpage-edukrein .stat-icon {
+  flex-shrink: 0;
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: var(--ds-secondary);
+}
+
+#landingpage-edukrein .stat-icon .svg-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+#landingpage-edukrein .stat-number {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1;
+}
+
+#landingpage-edukrein .stat-text {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Penyesuaian di layar kecil */
+@media (max-width: 767.98px) {
+  #landingpage-edukrein .stat-item {
+    justify-content: flex-start; /* Rata kiri di mobile */
+  }
+}
