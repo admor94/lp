@@ -491,8 +491,7 @@ body {
 }
 
 #landingpage-edukrein .testi-job {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 400;
+   color: var(--ds-tertiary-color);
 }
 
 /* [DIUBAH] Tombol Navigasi Slider Utama tanpa background */
