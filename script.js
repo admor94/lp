@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // ... kode Swiper Produk yang sudah ada ...
     
-// [DIUBAH] Inisialisasi Swiper Slider untuk Testimoni Utama
+// Inisialisasi Swiper Slider untuk Testimoni Utama
 var swiperTestimoniMain = new Swiper('.swiper-testimoni-main', {
   loop: true,
   navigation: {
@@ -62,18 +62,28 @@ var swiperTestimoniMain = new Swiper('.swiper-testimoni-main', {
   },
 });
 
-// [DIUBAH] Inisialisasi Swiper Slider untuk Testimoni Bawah (Marquee)
+// Inisialisasi Swiper Slider untuk Testimoni Bawah (Marquee)
 var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
   loop: true,
-  slidesPerView: 'auto', // Lebar slide ditentukan oleh CSS
   spaceBetween: 20,
-  speed: 8000, // Durasi animasi yang panjang agar terlihat halus
-  autoplay: {
-    delay: 1, // Jeda 1 milidetik, nyaris tanpa jeda
-    disableOnInteraction: false, // Terus berjalan bahkan setelah interaksi user
-    pauseOnMouseEnter: true, // Berhenti saat kursor di atasnya
+  // [DIUBAH] Menggunakan breakpoints untuk mengatur jumlah slide
+  slidesPerView: 1,
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    }
   },
-  allowTouchMove: false, // Nonaktifkan swipe manual
+  speed: 8000,
+  autoplay: {
+    delay: 1,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+  allowTouchMove: false,
 });
-
 
