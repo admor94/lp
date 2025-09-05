@@ -53,49 +53,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // ... kode Swiper Produk yang sudah ada ...
     
-    // [BARU] Inisialisasi Swiper Slider untuk Testimoni Utama
-    var swiperTestimoniMain = new Swiper('.swiper-testimoni-main', {
-      loop: true,
-      spaceBetween: 20,
-      navigation: {
-        nextEl: '.swiper-testimoni-wrapper .swiper-button-next',
-        prevEl: '.swiper-testimoni-wrapper .swiper-button-prev',
-      },
-    });
 
-    // [BARU] Inisialisasi Swiper Slider untuk Testimoni Marquee
-    var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
-      loop: true,
-      slidesPerView: 'auto',
-      spaceBetween: 20,
-      speed: 5000, // Kecepatan slide bergerak
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-      },
-      allowTouchMove: false, // Nonaktifkan swipe manual
-    });
+// [DIUBAH] Inisialisasi Swiper Slider untuk Testimoni Utama
+var swiperTestimoniMain = new Swiper('.swiper-testimoni-main', {
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
 
-// [DIUBAH] Inisialisasi Swiper Slider untuk Testimoni Bawah
+// [DIUBAH] Inisialisasi Swiper Slider untuk Testimoni Bawah (Marquee)
 var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
   loop: true,
+  slidesPerView: 'auto',
   spaceBetween: 20,
-  // Menentukan jumlah slide yang terlihat di berbagai ukuran layar
-  slidesPerView: 1,
-  breakpoints: {
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 20
-    },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 30
-    }
+  speed: 8000, // Durasi animasi yang panjang agar terlihat halus
+  autoplay: {
+    delay: 1, // Jeda 1 milidetik, nyaris tanpa jeda
+    disableOnInteraction: false, // Terus berjalan bahkan setelah interaksi user
+    pauseOnMouseEnter: true, // Berhenti saat kursor di atasnya
   },
-  // Mengaktifkan pagination (titik-titik)
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
+  allowTouchMove: false, // Nonaktifkan swipe manual
 });
 
