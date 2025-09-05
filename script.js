@@ -76,3 +76,16 @@ document.addEventListener("DOMContentLoaded", function() {
       allowTouchMove: false, // Nonaktifkan swipe manual
     });
 
+// [BARU] Inisialisasi Swiper Slider untuk Testimoni Marquee
+var swiperTestimoniMarquee = new Swiper('.swiper-testimoni-marquee', {
+  loop: true,
+  slidesPerView: 'auto',
+  spaceBetween: 20,
+  speed: 8000, // Durasi animasi lebih lambat agar terlihat halus
+  autoplay: {
+    delay: 1, // Jeda 1 milidetik antar transisi
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true, // Berhenti saat kursor di atasnya
+  },
+  allowTouchMove: false,
+});
