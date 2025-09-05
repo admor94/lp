@@ -249,3 +249,47 @@ body {
   border-bottom: 1px solid var(--ds-border-color);
 }
 
+/* 6. FAQ Section */
+#landingpage-edukrein .faq-section {
+  padding: 5rem 0;
+}
+
+#landingpage-edukrein .accordion-item {
+  border: 0;
+  border-bottom: var(--ds-border-width) solid var(--ds-border-color);
+}
+
+#landingpage-edukrein .accordion-button {
+  padding: 1.5rem 1rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  color: var(--ds-heading-color);
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#landingpage-edukrein .accordion-button:not(.collapsed) {
+  color: var(--ds-primary);
+  background-color: transparent;
+}
+
+#landingpage-edukrein .accordion-button::after {
+  content: '+';
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: 500;
+  background-image: none;
+  transform: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+#landingpage-edukrein .accordion-button:not(.collapsed)::after {
+  content: '-';
+  transform: rotate(180deg);
+}
+
+#landingpage-edukrein .accordion-body {
+  padding: 0 1rem 1.5rem;
+  line-height: 1.7;
+}
