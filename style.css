@@ -459,6 +459,9 @@ body {
   border-radius: var(--ds-border-radius-xl);
   padding: 2.5rem;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #landingpage-edukrein .testi-quote {
@@ -480,18 +483,41 @@ body {
   opacity: 0.8;
 }
 
-#landingpage-edukrein .testi-user img {
-  width: 60px;
-  height: 60px;
+/* [DIUBAH] Struktur user menjadi dua kolom sejajar */
+#landingpage-edukrein .testi-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
+/* [BARU] Ukuran foto user */
+#landingpage-edukrein .testi-user img,
+#landingpage-edukrein .testi-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* [DIUBAH] Nama dan Job */
 #landingpage-edukrein .testi-name {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
+  margin-bottom: 0;
 }
 
 #landingpage-edukrein .testi-job {
   color: var(--ds-tertiary-color);
+  display: block;
+}
+
+/* [BARU] Produk yang dibeli */
+#landingpage-edukrein .testi-produk {
+  font-style: italic;
+  color: var(--ds-tertiary-color);
+  margin-top: 0.5rem;
+  display: block;
 }
 
 /* [DIUBAH] Tombol Navigasi Slider Utama tanpa background */
@@ -501,6 +527,18 @@ body {
   background-color: transparent;
   width: 44px;
   height: 44px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
+  left: -2rem;
+}
+
+#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next {
+  right: -2rem;
 }
 
 #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next:after,
@@ -510,16 +548,17 @@ body {
 
 #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next .svg-icon,
 #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev .svg-icon {
-    width: 2rem;
-    height: 2rem;
-    fill: currentColor;
-    transition: color .2s;
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+  transition: color 0.2s;
 }
 
 #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next:hover,
 #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev:hover {
-    color: var(--ds-secondary);
+  color: var(--ds-secondary);
 }
+
 
 /* 10. Slider Testimoni Otomatis (Marquee) */
 #landingpage-edukrein .testimoni-marquee-section {
