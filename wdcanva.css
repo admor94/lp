@@ -1,5 +1,47 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700,900|Roboto:400,500');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Roboto:wght@400;500&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+
+/* ==================================================================
+DEFINISI VARIABEL WARNA & PROPERTI GLOBAL (ROOT)
+Ini adalah "kamus" untuk seluruh tema desain halaman Anda.
+================================================================== 
+*/
+:root {
+  /* Palet Warna Utama */
+  --ds-primary: #04202c;
+  --ds-secondary: #e67e22;
+  --ds-dark: #0f172a;
+  --ds-white: #ffffff;
+  --ds-body-bg: #ffffff;
+  --ds-body-color: #495057;
+  --ds-heading-color: #0f172a;
+  --ds-tertiary-bg: #f8f9fa;
+
+  /* Warna Aksen */
+  --ds-green: #198754;
+  --ds-blue: #0d6efd;
+  --ds-red: #dc3545;
+  --ds-purple: #6f42c1;
+  --ds-yellow: #ffc107;
+
+  /* Warna Subtle (untuk background/border) */
+  --ds-primary-bg-subtle: #cfe2ff;
+  --ds-primary-text-emphasis: #052c65;
+  --ds-red-bg-subtle: #f8d7da;
+  --ds-red-text-emphasis: #842029;
+
+  /* Properti Global */
+  --ds-border-color: #dee2e6;
+  --ds-border-width: 1px;
+  --ds-border-radius: .375rem;
+  --ds-border-radius-sm: .25rem;
+  --ds-border-radius-lg: .5rem;
+  --ds-border-radius-xl: 1rem;
+  --ds-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+  --ds-box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
+  --ds-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
+}
+
 
 /* === Sembunyikan Elemen Bawaan Tema === */
 #header,
@@ -18,8 +60,8 @@ body {
 /* Wadah Utama Landing Page */
 #landingpage-edukrein {
   font-family: 'Roboto', sans-serif;
-  color: var(--ds-body-color, #0f172a);
-  background-color: var(--ds-body-bg, #ffffff);
+  color: var(--ds-body-color);
+  background-color: var(--ds-body-bg);
   line-height: 1.6;
   width: 100%;
   overflow-x: hidden;
@@ -55,13 +97,13 @@ body {
 
 #landingpage-edukrein .navbar-dark .navbar-nav .nav-link:hover,
 #landingpage-edukrein .navbar-dark .navbar-nav .nav-link.active {
-  color: var(--ds-secondary, #e67e22);
+  color: var(--ds-secondary);
 }
 
 /* 2. Hero Section */
 #landingpage-edukrein .hero-section {
-  background-image: linear-gradient(45deg, var(--ds-primary, #04202c), #1f287d);
-  color: var(--ds-white, #ffffff);
+  background-image: linear-gradient(45deg, var(--ds-primary), #1f287d);
+  color: var(--ds-white);
   padding-top: 8rem;
   padding-bottom: 4rem;
 }
@@ -77,11 +119,11 @@ body {
 }
 
 #landingpage-edukrein .hero-section .btn-secondary {
-  --ds-btn-bg: var(--ds-secondary, #e67e22);
-  --ds-btn-border-color: var(--ds-secondary, #e67e22);
-  --ds-btn-hover-bg: #d35400;
-  --ds-btn-hover-border-color: #d35400;
-  color: #000;
+  --bs-btn-bg: var(--ds-secondary);
+  --bs-btn-border-color: var(--ds-secondary);
+  --bs-btn-hover-bg: #d35400;
+  --bs-btn-hover-border-color: #d35400;
+  color: var(--ds-dark);
   padding: 0.75rem 1.5rem;
   font-weight: bold;
 }
@@ -98,7 +140,7 @@ body {
 /* 3. Layanan Section */
 #landingpage-edukrein .layanan-section {
   padding: 5rem 0;
-  background-color: var(--ds-tertiary-bg, #f8f9fa);
+  background-color: var(--ds-tertiary-bg);
 }
 
 #landingpage-edukrein .service-card {
@@ -129,7 +171,7 @@ body {
 #landingpage-edukrein .service-card-4::after { background-color: var(--ds-purple); }
 
 #landingpage-edukrein .service-card .card-header {
-  background-color: var(--ds-dark, #0f172a);
+  background-color: var(--ds-dark);
   border-bottom: none;
   padding: 1.5rem;
 }
@@ -167,7 +209,7 @@ body {
 /* 5. Produk Section (Slider) */
 #landingpage-edukrein .produk-section {
   padding: 5rem 0;
-  background-color: var(--ds-tertiary-bg, #f8f9fa);
+  background-color: var(--ds-tertiary-bg);
 }
 
 #landingpage-edukrein .swiper-produk-wrapper {
@@ -199,7 +241,7 @@ body {
 }
 
 #landingpage-edukrein .swiper-produk .swiper-pagination-bullet-active {
-  background-color: var(--ds-secondary, #e67e22) !important;
+  background-color: var(--ds-secondary) !important;
 }
 
 /* Tombol Navigasi Slider */
@@ -225,26 +267,6 @@ body {
   #landingpage-edukrein .swiper-button-prev {
       display: none;
   }
-}
-
-/* Responsif untuk layar besar (desktop) */
-@media (min-width: 992px) {
-  #landingpage-edukrein .hero-section {
-    padding-top: 10rem;
-    padding-bottom: 6rem;
-  }
-  #landingpage-edukrein .hero-section .lead {
-    font-size: 1.2rem;
-  }
-}
-
-/* Placeholder untuk Section Lainnya */
-.placeholder-section {
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid var(--ds-border-color);
 }
 
 /* 6. FAQ Section */
@@ -295,12 +317,12 @@ body {
 /* 7. Alasan Memilih Kami Section */
 #landingpage-edukrein .alasan-section {
   padding: 5rem 0;
-  background-color: var(--ds-primary, #04202c);
-  color: var(--ds-white, #ffffff);
+  background-color: var(--ds-primary);
+  color: var(--ds-white);
 }
 
 #landingpage-edukrein .alasan-section .section-title {
-  color: var(--ds-secondary, #e67e22);
+  color: var(--ds-secondary);
 }
 
 #landingpage-edukrein .alasan-section .lead.text-muted {
@@ -328,7 +350,7 @@ body {
 
 #landingpage-edukrein .alasan-icon {
   font-size: 1.5rem;
-  color: var(--ds-secondary, #e67e22);
+  color: var(--ds-secondary);
   margin-right: 1rem;
   line-height: 1.2;
 }
@@ -337,7 +359,7 @@ body {
   margin-bottom: 0.5rem;
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
-  color: var(--ds-white, #ffffff);
+  color: var(--ds-white);
 }
 
 #landingpage-edukrein .alasan-text p {
@@ -349,7 +371,7 @@ body {
 /* 8. Harga Section */
 #landingpage-edukrein .harga-section {
   padding: 5rem 0;
-  background-color: var(--ds-tertiary-bg, #f8f9fa);
+  background-color: var(--ds-tertiary-bg);
 }
 
 #landingpage-edukrein .price-card {
@@ -597,19 +619,6 @@ body {
   color: var(--ds-tertiary-color);
 }
 
-/* Penyesuaian untuk Tampilan Mobile */
-@media (max-width: 991.98px) {
-  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next,
-  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
-    display: none;
-  }
-
-  #landingpage-edukrein .testimoni-section {
-    padding: 3rem 0;
-  }
-}
-
-
 /* 11. Kontak Section */
 #landingpage-edukrein .kontak-section {
   padding: 5rem 0;
@@ -641,7 +650,7 @@ body {
 }
 
 #landingpage-edukrein .social-icon {
-  color: var(--ds-secondary-color);
+  color: var(--ds-body-color);
   transition: color .2s, transform .2s;
 }
 
@@ -653,8 +662,8 @@ body {
 /* 12. Statistik Section */
 #landingpage-edukrein .statistik-section {
   padding: 3rem 0;
-  background-color: #212529; /* Contoh var(--ds-dark) */
-  color: #f8f9fa; /* Contoh var(--ds-white) */
+  background-color: var(--ds-dark);
+  color: var(--ds-white);
 }
 
 #landingpage-edukrein .stat-item {
@@ -667,20 +676,19 @@ body {
 
 #landingpage-edukrein .stat-icon {
   flex-shrink: 0;
-  color: #ffc107; /* Contoh var(--ds-secondary) */
+  color: var(--ds-secondary);
 }
 
 #landingpage-edukrein .stat-icon .svg-icon {
   width: 2.5rem;
   height: 2.5rem;
-  /* Menerapkan animasi ke SVG */
   animation: float-anim 4s ease-in-out infinite;
 }
 
 /* Menambahkan delay animasi yang berbeda untuk setiap ikon */
-#landingpage-edukrein .col-lg-3:nth-child(2) .svg-icon { animation-delay: 0.3s; }
-#landingpage-edukrein .col-lg-3:nth-child(3) .svg-icon { animation-delay: 0.6s; }
-#landingpage-edukrein .col-lg-3:nth-child(4) .svg-icon { animation-delay: 0.9s; }
+#landingpage-edukrein .stat-item:nth-child(2) .svg-icon { animation-delay: 0.3s; }
+#landingpage-edukrein .stat-item:nth-child(3) .svg-icon { animation-delay: 0.6s; }
+#landingpage-edukrein .stat-item:nth-child(4) .svg-icon { animation-delay: 0.9s; }
 
 
 #landingpage-edukrein .stat-number {
@@ -725,7 +733,18 @@ body {
   50% { opacity: 0; }
 }
 
-/* Penyesuaian di layar kecil */
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 991.98px) {
+  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next,
+  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
+    display: none;
+  }
+ 
+  #landingpage-edukrein .testimoni-section {
+    padding: 3rem 0;
+  }
+}
+
 @media (min-width: 768px) {
   #landingpage-edukrein .stat-item {
     flex-direction: row; /* Kembali ke tata letak baris di layar yang lebih besar */
@@ -733,5 +752,15 @@ body {
   }
   #landingpage-edukrein .stat-content {
       text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+  #landingpage-edukrein .hero-section {
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+  }
+  #landingpage-edukrein .hero-section .lead {
+    font-size: 1.2rem;
   }
 }
