@@ -653,96 +653,87 @@ body {
 }
 
 /* 12. Statistik Section */
-/* Mengambil variabel dari root jika ada, jika tidak, fallback */
-:root {
-    --ds-dark: #0f172a;
-    --ds-white: #ffffff;
-    --ds-secondary: #E67E22;
+#landingpage-edukrein .statistik-section {
+  padding: 3rem 0;
+  background-color: #212529; /* Contoh var(--ds-dark) */
+  color: #f8f9fa; /* Contoh var(--ds-white) */
 }
 
-.statistik-section {
-  padding: 4rem 0;
-  background-color: var(--ds-dark);
-  color: var(--ds-white);
-  overflow: hidden; /* Mencegah item keluar saat animasi */
-}
-
-.stat-item {
+#landingpage-edukrein .stat-item {
   display: flex;
-  flex-direction: column; /* Ubah arah flex untuk tata letak ikon di atas */
+  flex-direction: column; /* Mengubah arah flex untuk tumpukan responsif */
   align-items: center;
   justify-content: center;
-  gap: 1rem; /* Jarak antara ikon dan konten */
+  gap: 0.5rem; /* Memberi jarak antara ikon dan konten */
 }
 
-/* REVISI: Efek animasi untuk Ikon SVG */
-.stat-icon {
-  color: var(--ds-secondary);
+#landingpage-edukrein .stat-icon {
+  flex-shrink: 0;
+  color: #ffc107; /* Contoh var(--ds-secondary) */
 }
 
-.stat-icon .svg-icon {
-  width: 3rem;
-  height: 3rem;
-  transition: transform 0.3s ease-in-out;
+#landingpage-edukrein .stat-icon .svg-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  /* Menerapkan animasi ke SVG */
+  animation: float-anim 4s ease-in-out infinite;
 }
 
-/* Tambahkan class .is-visible lewat JS untuk memicu animasi */
-.statistik-section.is-visible .stat-icon .svg-icon {
-  animation: float-icon 3s ease-in-out infinite;
-}
+/* Menambahkan delay animasi yang berbeda untuk setiap ikon */
+#landingpage-edukrein .col-lg-3:nth-child(2) .svg-icon { animation-delay: 0.3s; }
+#landingpage-edukrein .col-lg-3:nth-child(3) .svg-icon { animation-delay: 0.6s; }
+#landingpage-edukrein .col-lg-3:nth-child(4) .svg-icon { animation-delay: 0.9s; }
 
-@keyframes float-icon {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px) scale(1.1); }
-  100% { transform: translateY(0); }
-}
 
-.stat-content {
-  text-align: center;
-}
-
-.stat-number {
+#landingpage-edukrein .stat-number {
   font-family: 'Nunito', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   margin: 0;
   line-height: 1;
-  color: var(--ds-white);
-  /* Mencegah layout bergeser saat angka berubah */
-  font-variant-numeric: tabular-nums;
 }
 
-/* REVISI: Efek animasi mengetik untuk Teks */
-.stat-text {
+#landingpage-edukrein .stat-text {
   margin: 0;
   font-size: 0.9rem;
   opacity: 0.8;
-  margin-top: 0.25rem;
   position: relative;
-  /* Kursor mengetik */
-  border-right: 2px solid rgba(255, 255, 255, .75);
-  white-space: nowrap;
-  overflow: hidden;
+  min-height: 1.2em; /* Mencegah layout jumping saat teks diketik */
 }
 
-/* Hapus kursor setelah animasi selesai */
-.stat-text.typing-done {
-    border-right: none;
+/* Efek kursor mengetik */
+#landingpage-edukrein .stat-text::after {
+  content: '▋';
+  position: absolute;
+  right: -10px;
+  top: 0;
+  opacity: 1;
+  animation: blink-anim 1s infinite;
 }
 
-/* Animasi untuk kursor berkedip */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: rgba(255, 255, 255, .75); }
+/* Menghilangkan kursor setelah selesai mengetik */
+#landingpage-edukrein .stat-text.typing-done::after {
+  display: none;
 }
 
-/* Penyesuaian responsif */
-@media (min-width: 992px) {
-    .stat-item {
-        flex-direction: row; /* Kembali ke tata letak horizontal di layar besar */
-        text-align: left;
-    }
-    .stat-content {
-        text-align: left;
-    }
+/* Keyframes untuk animasi */
+@keyframes float-anim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes blink-anim {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Penyesuaian di layar kecil */
+@media (min-width: 768px) {
+  #landingpage-edukrein .stat-item {
+    flex-direction: row; /* Kembali ke tata letak baris di layar yang lebih besar */
+    gap: 1rem; /* Jarak yang lebih besar di desktop */
+  }
+  #landingpage-edukrein .stat-content {
+      text-align: left;
+  }
 }
