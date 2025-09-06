@@ -99,3 +99,84 @@ if (contactForm) {
     contactForm.reset();
   });
 }
+
+
+// ================================================================= Statistik
+document.addEventListener("DOMContentLoaded", () => {
+    
+    const statSection = document.querySelector('.statistik-section');
+
+    // =================================================================
+    // FUNGSI UNTUK ANIMASI EFEK LOTRE/COUNTER
+    // =================================================================
+    const animateCountUp = (el) => {
+        const goal = parseInt(el.dataset.goal, 10);
+        const duration = 2000; // Durasi animasi dalam milidetik
+        let startTime = null;
+
+        const step = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const currentValue = Math.floor(progress * goal);
+            
+            el.textContent = currentValue.toLocaleString('id-ID'); // Format angka dengan titik ribuan
+            
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        
+        window.requestAnimationFrame(step);
+    };
+    
+    // =================================================================
+    // FUNGSI UNTUK ANIMASI EFEK MENGETIK
+    // =================================================================
+    const animateTyping = (el) => {
+        const text = el.dataset.text;
+        el.textContent = ''; // Kosongkan teks awal
+        el.style.animation = 'blink-caret .75s step-end infinite'; // Mulai animasi kursor
+
+        let i = 0;
+        const typingInterval = setInterval(() => {
+            if (i < text.length) {
+                el.textContent += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typingInterval);
+                el.classList.add('typing-done'); // Hapus kursor setelah selesai
+            }
+        }, 100); // Kecepatan mengetik
+    };
+
+
+    // =================================================================
+    // INTERSECTION OBSERVER UNTUK MEMICU ANIMASI SAAT SCROLL
+    // =================================================================
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Tambahkan class untuk memicu animasi CSS (ikon SVG)
+                statSection.classList.add('is-visible');
+
+                // Panggil fungsi animasi untuk setiap elemen
+                const numberElements = statSection.querySelectorAll('.stat-number');
+                const textElements = statSection.querySelectorAll('.stat-text');
+                
+                numberElements.forEach(animateCountUp);
+                textElements.forEach(animateTyping);
+
+                // Hentikan observing setelah animasi berjalan sekali
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5 // Memicu saat 50% elemen terlihat
+    });
+
+    // Mulai mengamati section statistik
+    if (statSection) {
+        observer.observe(statSection);
+    }
+});
