@@ -12,11 +12,6 @@ body {
 }
 
 /* === Kode untuk Landing Page === */
-/* Font */
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700,900|Roboto:400,500');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
-
-
 /* Wadah Utama Landing Page */
 #landingpage-edukrein {
   font-family: 'Roboto', sans-serif;
