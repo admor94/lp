@@ -1,1 +1,240 @@
+/* === Sembunyikan Elemen Bawaan Tema === */
+/* Ganti selector ini sesuai dengan ID/Class dari tema blog Anda */
+#header-wrapper, .header, #sidebar-wrapper, .sidebar, #footer-wrapper, .footer, .post-title, .post-footer, #blog-pager, #comments {
+  display: none !important;
+}
+/* Membuat konten utama memenuhi seluruh lebar halaman */
+#main-wrapper, .main-wrapper, #content-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body {
+  overflow-x: hidden;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* === Variabel Warna & Font === */
+:root {
+    --ds-primary: #1F287D;
+    --ds-secondary: #E67E22;
+    --ds-dark: #0f172a;
+    --ds-light: #f8f9fa;
+    --ds-white: #ffffff;
+    --ds-green: #13847B;
+    --ds-red: #E12D2D;
+    --ds-blue: #3498db;
+    --ds-purple: #6F42C1;
+    --ds-body-color: #333;
+    --ds-body-bg: #ffffff;
+    --ds-font-primary: 'Nunito', sans-serif;
+    --ds-font-secondary: 'Roboto', sans-serif;
+}
+
+/* === Kode Umum Landing Page === */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Roboto:wght@400;500&display=swap');
+
+#landingpage-edukrein {
+  font-family: var(--ds-font-secondary);
+  color: var(--ds-body-color);
+  background-color: var(--ds-body-bg);
+  line-height: 1.6;
+  width: 100%;
+}
+
+#landingpage-edukrein .section-title {
+    font-family: var(--ds-font-primary);
+    font-weight: 800;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+/* 1. Navbar Section */
+.navbar-landing {
+  padding: 1rem 0;
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.navbar-landing.scrolled {
+  background-color: rgba(15, 23, 42, 0.9);
+  padding: 0.5rem 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand img { height: 40px; }
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--ds-secondary);
+}
+
+/* 2. Hero Section */
+.hero-section {
+  background-image: linear-gradient(45deg, var(--ds-dark), var(--ds-primary));
+  color: var(--ds-white);
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+}
+
+.hero-section .display-4 { font-family: var(--ds-font-primary); font-weight: 900; }
+.hero-section .lead { font-size: 1.1rem; opacity: 0.9; }
+.hero-section .btn-secondary {
+  background-color: var(--ds-secondary);
+  border-color: var(--ds-secondary);
+  color: var(--ds-white);
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+}
+.hero-section .btn-secondary:hover { background-color: #d35400; border-color: #d35400; }
+.hero-image { animation: float-animation 4s ease-in-out infinite; }
+
+@keyframes float-animation {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* 3. Kategori (Layanan) Section */
+.layanan-section { background-color: var(--ds-light); }
+.service-card {
+  border: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 1rem 3rem rgba(0,0,0,.175); }
+.service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; }
+.service-card-1::after { background-color: var(--ds-green); }
+.service-card-2::after { background-color: var(--ds-blue); }
+.service-card-3::after { background-color: var(--ds-red); }
+.service-card-4::after { background-color: var(--ds-purple); }
+.service-card .card-header { background-color: var(--ds-dark); border-bottom: none; padding: 1.5rem; }
+.service-icon {
+  width: 60px; height: 60px; background-color: var(--ds-green); border-radius: 0.5rem;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 1.75rem;
+}
+.service-icon.bg-blue { background-color: var(--ds-blue); }
+.service-icon.bg-red { background-color: var(--ds-red); }
+.service-icon.bg-purple { background-color: var(--ds-purple); }
+.service-card .card-title { color: var(--ds-white); font-family: var(--ds-font-primary); }
+
+/* 4. Galeri (Produk) Section */
+.produk-section { background-color: var(--ds-body-bg); }
+.swiper-produk .swiper-slide { height: auto; }
+.swiper-produk .card { border: none; transition: all 0.3s ease; }
+.swiper-produk .card:hover { transform: translateY(-5px); box-shadow: 0 1rem 3rem rgba(0,0,0,.1); }
+.swiper-produk .card-img-top { aspect-ratio: 1 / 1; object-fit: cover; }
+.swiper-produk .swiper-pagination-bullet-active { background-color: var(--ds-primary) !important; }
+.swiper-button-next, .swiper-button-prev {
+  color: var(--ds-primary); background-color: rgba(255, 255, 255, 0.9);
+  width: 44px; height: 44px; border-radius: 50%;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075); top: 45%;
+}
+.swiper-button-next:after, .swiper-button-prev:after { font-size: 1.2rem; font-weight: bold; }
+@media (max-width: 767.98px) { .swiper-button-next, .swiper-button-prev { display: none; } }
+
+/* 5. Alasan Section */
+.alasan-section { background-color: var(--ds-dark); color: var(--ds-white); }
+.alasan-section .section-title { color: var(--ds-secondary); }
+.alasan-section .lead.text-muted { color: rgba(255, 255, 255, 0.7) !important; }
+.alasan-list { list-style: none; padding: 0; }
+.alasan-list li { display: flex; align-items: flex-start; margin-bottom: 1.5rem; }
+.alasan-icon { font-size: 1.5rem; color: var(--ds-secondary); margin-right: 1rem; line-height: 1.2; }
+.alasan-text h5 { margin-bottom: 0.5rem; font-family: var(--ds-font-primary); }
+.alasan-text p { margin-bottom: 0; color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; }
+
+/* 6. Testimoni Section */
+.testimoni-section { padding-bottom: 0; } /* Hapus padding bawah agar menempel dengan marquee */
+.testi-card {
+  background-color: var(--ds-dark); color: var(--ds-white);
+  border-radius: 1rem; padding: 2.5rem; height: 100%;
+  display: flex; flex-direction: column;
+}
+.testi-quote { font-size: 1.2rem; font-style: italic; margin-bottom: 2rem; position: relative; padding-left: 2rem; flex-grow: 1; }
+.testi-quote::before {
+  content: '“'; position: absolute; left: 0; top: -0.2rem; font-size: 2.5rem;
+  color: var(--ds-secondary); font-family: var(--ds-font-primary); opacity: 0.8;
+}
+.testi-footer { margin-top: auto; }
+.testi-user { display: flex; align-items: center; }
+.testi-user img { width: 50px; height: 50px; }
+.testi-name { font-family: var(--ds-font-primary); font-weight: 700; font-size: 1.1rem; }
+.testi-job { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; }
+
+/* REVISI Navigasi Testimoni */
+.swiper-navigation-wrapper { display: flex; gap: 0.5rem; }
+.testi-card .swiper-button-prev,
+.testi-card .swiper-button-next {
+  position: static; margin: 0; width: 40px; height: 40px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.testi-card .swiper-button-prev:after, 
+.testi-card .swiper-button-next:after { content: none; }
+.testi-card .svg-icon { width: 1.5rem; height: 1.5rem; fill: currentColor; }
+.testi-card .swiper-button-prev:hover,
+.testi-card .swiper-button-next:hover { color: var(--ds-secondary); }
+
+/* 7. Testimoni Marquee Section (REVISI Latar Belakang) */
+.testimoni-marquee-section {
+  padding: 2.5rem 0;
+  background-color: var(--ds-primary);
+  margin-top: 5rem;
+  overflow: hidden;
+}
+.swiper-testimoni-marquee .swiper-slide { height: auto; }
+.testi-card-marquee {
+  display: flex; flex-direction: column; padding: 1.5rem;
+  background-color: var(--ds-body-bg); border-radius: 0.75rem;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  border-left: 4px solid var(--ds-secondary); height: 100%;
+}
+.testi-card-marquee .testi-quote { font-size: 0.95rem; flex-grow: 1; margin: 0 0 1rem 0; }
+.testi-card-marquee .testi-user img { width: 35px; height: 35px; }
+.testi-card-marquee .testi-name { font-size: 0.9rem; font-weight: 700; }
+
+/* 8. Harga Section */
+.harga-section { background-color: var(--ds-light); }
+.price-card { border: none; border-radius: 1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; overflow: hidden; }
+.price-card:hover { transform: translateY(-10px); box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important; }
+.price-card .card-header { background-color: var(--ds-dark); color: var(--ds-white); border-bottom: 4px solid var(--ds-primary); }
+.price-card.popular .card-header { background-color: var(--ds-primary); border-bottom-color: var(--ds-secondary); }
+.price-title { font-family: var(--ds-font-primary); font-weight: 800; }
+.price-subtitle { color: rgba(255, 255, 255, 0.8); min-height: 42px; }
+.price-tag .price-original { text-decoration: line-through; opacity: 0.7; }
+.price-tag .price { font-size: 2.5rem; font-weight: 800; font-family: var(--ds-font-primary); line-height: 1; }
+.price-tag .price-off {
+    font-size: 0.8rem; font-weight: 700; padding: .5rem; border-radius: 0.25rem;
+    background-color: rgba(225, 45, 45, 0.1); color: var(--ds-red); line-height: 1;
+}
+.price-features { padding: 0; margin: 1.5rem 0; text-align: left; }
+.price-features li { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.price-features i { font-size: 1.2rem; }
+.price-features .fa-check { color: var(--ds-green); }
+.price-features .fa-times { color: #aaa; }
+
+/* 9. FAQ Section */
+.faq-section { padding-bottom: 5rem; }
+.accordion-item { border: 0; border-bottom: 1px solid #dee2e6; }
+.accordion-button { padding: 1.5rem 1rem; font-weight: 700; font-family: var(--ds-font-primary); font-size: 1.1rem; color: #333; background-color: transparent; box-shadow: none; }
+.accordion-button:not(.collapsed) { color: var(--ds-primary); }
+.accordion-button::after {
+  content: '+'; font-family: monospace; font-size: 2rem; font-weight: 500;
+  background-image: none; transform: none; transition: transform 0.2s ease-in-out;
+}
+.accordion-button:not(.collapsed)::after { content: '-'; }
+.accordion-body { padding: 0 1rem 1.5rem; line-height: 1.7; }
+.btn-success { background-color: #25D366; border-color: #25D366; }
+.btn-success:hover { background-color: #1DAE53; border-color: #1DAE53; }
 
