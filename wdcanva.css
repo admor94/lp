@@ -21,8 +21,8 @@ body {
   line-height: 1.6;
   width: 100%;
   overflow-x: hidden;
-  visibility: visible !important; /* Memaksa elemen untuk selalu terlihat */
 }
+
 
 #landingpage-edukrein .section-title {
   font-family: 'Nunito', sans-serif;
