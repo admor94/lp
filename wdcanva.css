@@ -1,54 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Roboto:wght@400;500&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
-
-/* ==================================================================
-DEFINISI VARIABEL WARNA & PROPERTI GLOBAL (ROOT)
-Ini adalah "kamus" untuk seluruh tema desain halaman Anda.
-================================================================== 
+/*
+  Nama File: wdcanva.css
+  Fungsi: Berisi gaya CSS *KHUSUS* untuk landing page statis.
+  Gaya umum seperti font, warna dasar, dan Bootstrap sudah dimuat oleh tema utama.
 */
-:root {
-  /* Palet Warna Utama */
-  --ds-primary: #04202c;
-  --ds-secondary: #e67e22;
-  --ds-dark: #0f172a;
-  --ds-white: #ffffff;
-  --ds-body-bg: #ffffff;
-  --ds-body-color: #495057;
-  --ds-heading-color: #0f172a;
-  --ds-tertiary-bg: #f8f9fa;
 
-  /* Warna Aksen */
-  --ds-green: #198754;
-  --ds-blue: #0d6efd;
-  --ds-red: #dc3545;
-  --ds-purple: #6f42c1;
-  --ds-yellow: #ffc107;
-
-  /* Warna Subtle (untuk background/border) */
-  --ds-primary-bg-subtle: #cfe2ff;
-  --ds-primary-text-emphasis: #052c65;
-  --ds-red-bg-subtle: #f8d7da;
-  --ds-red-text-emphasis: #842029;
-
-  /* Properti Global */
-  --ds-border-color: #dee2e6;
-  --ds-border-width: 1px;
-  --ds-border-radius: .375rem;
-  --ds-border-radius-sm: .25rem;
-  --ds-border-radius-lg: .5rem;
-  --ds-border-radius-xl: 1rem;
-  --ds-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
-  --ds-box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
-  --ds-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
-}
-
-
-/* === Sembunyikan Elemen Bawaan Tema === */
-#header,
-#navfloat,
-#chat,
-#footer,
-#main {
+/* === SEMBUNYIKAN ELEMEN TEMA UTAMA DI HALAMAN INI SAJA === */
+#header, #navfloat, #chat, #footer, #main {
   display: none !important;
 }
 
@@ -56,20 +13,20 @@ body {
   overflow-x: hidden;
 }
 
-/* === Kode untuk Landing Page === */
-/* Wadah Utama Landing Page */
+/* === GAYA KHUSUS UNTUK LANDING PAGE === */
 #landingpage-edukrein {
   font-family: 'Roboto', sans-serif;
-  color: var(--ds-body-color);
-  background-color: var(--ds-body-bg);
+  color: var(--ds-body-color, #0f172a);
+  background-color: var(--ds-body-bg, #ffffff);
   line-height: 1.6;
   width: 100%;
   overflow-x: hidden;
+  visibility: visible !important; /* Memaksa elemen untuk selalu terlihat */
 }
 
 #landingpage-edukrein .section-title {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
 }
 
 /* 1. Navbar Section */
@@ -97,35 +54,15 @@ body {
 
 #landingpage-edukrein .navbar-dark .navbar-nav .nav-link:hover,
 #landingpage-edukrein .navbar-dark .navbar-nav .nav-link.active {
-  color: var(--ds-secondary);
+  color: var(--ds-secondary, #e67e22);
 }
 
 /* 2. Hero Section */
 #landingpage-edukrein .hero-section {
-  background-image: linear-gradient(45deg, var(--ds-primary), #1f287d);
-  color: var(--ds-white);
+  background-image: linear-gradient(45deg, var(--ds-primary, #04202c), #1f287d);
+  color: var(--ds-white, #ffffff);
   padding-top: 8rem;
   padding-bottom: 4rem;
-}
-
-#landingpage-edukrein .hero-section .display-3 {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 900;
-}
-
-#landingpage-edukrein .hero-section .lead {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-#landingpage-edukrein .hero-section .btn-secondary {
-  --bs-btn-bg: var(--ds-secondary);
-  --bs-btn-border-color: var(--ds-secondary);
-  --bs-btn-hover-bg: #d35400;
-  --bs-btn-hover-border-color: #d35400;
-  color: var(--ds-dark);
-  padding: 0.75rem 1.5rem;
-  font-weight: bold;
 }
 
 #landingpage-edukrein .hero-image {
@@ -140,7 +77,7 @@ body {
 /* 3. Layanan Section */
 #landingpage-edukrein .layanan-section {
   padding: 5rem 0;
-  background-color: var(--ds-tertiary-bg);
+  background-color: var(--ds-tertiary-bg, #f8f9fa);
 }
 
 #landingpage-edukrein .service-card {
@@ -164,14 +101,13 @@ body {
   width: 100%;
   height: 5px;
 }
-
 #landingpage-edukrein .service-card-1::after { background-color: var(--ds-green); }
 #landingpage-edukrein .service-card-2::after { background-color: var(--ds-blue); }
 #landingpage-edukrein .service-card-3::after { background-color: var(--ds-red); }
 #landingpage-edukrein .service-card-4::after { background-color: var(--ds-purple); }
 
 #landingpage-edukrein .service-card .card-header {
-  background-color: var(--ds-dark);
+  background-color: var(--ds-dark, #0f172a);
   border-bottom: none;
   padding: 1.5rem;
 }
@@ -190,61 +126,22 @@ body {
 #landingpage-edukrein .service-icon.bg-blue { background-color: var(--ds-blue); }
 #landingpage-edukrein .service-icon.bg-red { background-color: var(--ds-red); }
 #landingpage-edukrein .service-icon.bg-purple { background-color: var(--ds-purple); }
-
-#landingpage-edukrein .service-card .card-title {
-  color: var(--ds-white);
-  font-family: 'Nunito', sans-serif;
-}
-
-/* 4. CTA / Quote Section */
-#landingpage-edukrein .cta-section {
-  padding: 5rem 0;
-}
-
-#landingpage-edukrein .cta-section h2 {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-}
+#landingpage-edukrein .service-card .card-title { color: var(--ds-white); font-family: 'Nunito', sans-serif; }
 
 /* 5. Produk Section (Slider) */
-#landingpage-edukrein .produk-section {
-  padding: 5rem 0;
-  background-color: var(--ds-tertiary-bg);
-}
-
 #landingpage-edukrein .swiper-produk-wrapper {
     position: relative;
 }
-
-#landingpage-edukrein .swiper-produk .swiper-slide {
-  height: auto;
-}
-
 #landingpage-edukrein .swiper-produk .card {
     border: none;
     transition: all 0.3s ease;
 }
-
 #landingpage-edukrein .swiper-produk .card:hover {
     transform: translateY(-5px);
     box-shadow: var(--ds-box-shadow-lg);
 }
 
-#landingpage-edukrein .swiper-produk .card-img-top {
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-}
-
-#landingpage-edukrein .swiper-produk .badge {
-    font-size: 0.7rem;
-    font-weight: 500;
-}
-
-#landingpage-edukrein .swiper-produk .swiper-pagination-bullet-active {
-  background-color: var(--ds-secondary) !important;
-}
-
-/* Tombol Navigasi Slider */
+/* Tombol Navigasi Slider Produk & Testimoni */
 #landingpage-edukrein .swiper-button-next,
 #landingpage-edukrein .swiper-button-prev {
   color: var(--ds-primary);
@@ -262,216 +159,15 @@ body {
   font-weight: bold;
 }
 
-@media (max-width: 767.98px) {
-  #landingpage-edukrein .swiper-button-next,
-  #landingpage-edukrein .swiper-button-prev {
-      display: none;
-  }
-}
-
-/* 6. FAQ Section */
-#landingpage-edukrein .faq-section {
-  padding: 5rem 0;
-}
-
-#landingpage-edukrein .accordion-item {
-  border: 0;
-  border-bottom: var(--ds-border-width) solid var(--ds-border-color);
-}
-
-#landingpage-edukrein .accordion-button {
-  padding: 1.5rem 1rem;
-  font-weight: 700;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.1rem;
-  color: var(--ds-heading-color);
-  background-color: transparent;
-  box-shadow: none;
-}
-
-#landingpage-edukrein .accordion-button:not(.collapsed) {
-  color: var(--ds-primary);
-  background-color: transparent;
-}
-
-#landingpage-edukrein .accordion-button::after {
-  content: '+';
-  font-family: monospace;
-  font-size: 2rem;
-  font-weight: 500;
-  background-image: none;
-  transform: none;
-  transition: transform 0.2s ease-in-out;
-}
-
-#landingpage-edukrein .accordion-button:not(.collapsed)::after {
-  content: '-';
-  transform: rotate(180deg);
-}
-
-#landingpage-edukrein .accordion-body {
-  padding: 0 1rem 1.5rem;
-  line-height: 1.7;
-}
-
-/* 7. Alasan Memilih Kami Section */
-#landingpage-edukrein .alasan-section {
-  padding: 5rem 0;
-  background-color: var(--ds-primary);
-  color: var(--ds-white);
-}
-
-#landingpage-edukrein .alasan-section .section-title {
-  color: var(--ds-secondary);
-}
-
-#landingpage-edukrein .alasan-section .lead.text-muted {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-#landingpage-edukrein .alasan-list {
-  list-style: none;
-  padding: 0;
-}
-
-#landingpage-edukrein .alasan-list li {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#landingpage-edukrein .alasan-list li:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-#landingpage-edukrein .alasan-icon {
-  font-size: 1.5rem;
-  color: var(--ds-secondary);
-  margin-right: 1rem;
-  line-height: 1.2;
-}
-
-#landingpage-edukrein .alasan-text h5 {
-  margin-bottom: 0.5rem;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  color: var(--ds-white);
-}
-
-#landingpage-edukrein .alasan-text p {
-  margin-bottom: 0;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
-}
-
-/* 8. Harga Section */
-#landingpage-edukrein .harga-section {
-  padding: 5rem 0;
-  background-color: var(--ds-tertiary-bg);
-}
-
-#landingpage-edukrein .price-card {
-  border: none;
-  border-radius: var(--ds-border-radius-xl);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-}
-
-#landingpage-edukrein .price-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--ds-box-shadow-lg) !important;
-}
-
-#landingpage-edukrein .price-card .card-header {
-  background-color: var(--ds-dark);
-  color: var(--ds-white);
-  border-bottom: 4px solid var(--ds-purple);
-}
-
-#landingpage-edukrein .price-card.popular .card-header {
-  background-color: var(--ds-green);
-  border-bottom-color: var(--ds-yellow);
-}
-
-#landingpage-edukrein .price-card.professional .card-header {
-  background-color: var(--ds-dark);
-  border-bottom-color: var(--ds-red);
-}
-
-#landingpage-edukrein .price-title {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-}
-
-#landingpage-edukrein .price-subtitle {
-  color: rgba(255, 255, 255, 0.8);
-  min-height: 42px; /* Agar tinggi subtitle sama */
-}
-
-#landingpage-edukrein .price-tag {
-  color: var(--ds-heading-color);
-}
-
-#landingpage-edukrein .price-tag .price-original {
-  display: block;
-  font-size: 1rem;
-  font-weight: 400;
-  text-decoration: line-through;
-  opacity: 0.7;
-}
-
-#landingpage-edukrein .price-tag .price {
-  font-size: 2.5rem;
-  font-weight: 800;
-  font-family: 'Nunito', sans-serif;
-  line-height: 1;
-}
-
-#landingpage-edukrein .price-tag .price-off {
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: .5rem;
-  border-radius: var(--ds-border-radius-sm);
-  background-color: var(--ds-red-bg-subtle);
-  color: var(--ds-red-text-emphasis);
-  line-height: 1;
-}
-
-#landingpage-edukrein .price-features {
-  padding: 0;
-  margin: 1.5rem 0;
-  text-align: left;
-}
-
-#landingpage-edukrein .price-features li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-#landingpage-edukrein .price-features i {
-  font-size: 1.2rem;
-}
-
-#landingpage-edukrein .price-features .fa-check {
-  color: var(--ds-green);
-}
-
-#landingpage-edukrein .price-features .fa-times {
-  color: var(--ds-red);
-}
-
-/* 9. Testimoni Section */
+/* 9. [FIX] Testimoni Section */
 #landingpage-edukrein .testimoni-section {
   padding: 5rem 0;
   overflow: hidden;
+  background-color: var(--ds-dark); /* Memaksa latar menjadi gelap */
 }
-
+#landingpage-edukrein .swiper-testimoni-main .swiper-slide {
+  height: auto; /* Memastikan tinggi slide menyesuaikan konten */
+}
 #landingpage-edukrein .testi-card {
   background-color: var(--ds-dark);
   color: var(--ds-white);
@@ -481,15 +177,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-#landingpage-edukrein .testi-produk {
-  display: block;
-  margin-bottom: 1rem;
-  font-style: italic;
-  opacity: 0.8;
-  font-size: 0.9rem;
-}
-
 #landingpage-edukrein .testi-quote {
   font-size: 1.2rem;
   font-style: italic;
@@ -498,7 +185,6 @@ body {
   padding-left: 2rem;
   flex-grow: 1;
 }
-
 #landingpage-edukrein .testi-quote::before {
   content: '“';
   position: absolute;
@@ -509,154 +195,11 @@ body {
   font-family: 'Nunito', sans-serif;
   opacity: 0.8;
 }
-
-#landingpage-edukrein .testi-footer {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#landingpage-edukrein .testi-user {
-  display: flex;
-  align-items: center;
-}
-
-#landingpage-edukrein .testi-user img {
-  width: 50px;
-  height: 50px;
-}
-
-#landingpage-edukrein .testi-name {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-#landingpage-edukrein .testi-job {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
-}
-
-/* Tombol Navigasi Slider Utama */
-#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next,
-#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
-  color: var(--ds-white);
-  background-color: transparent;
-  width: 44px;
-  height: 44px;
-  margin-top: -22px; /* Setengah dari tinggi */
-}
-
-#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next:after,
-#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev:after {
-  content: none;
-}
-
-#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next .svg-icon,
-#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev .svg-icon {
-    width: 2rem;
-    height: 2rem;
-    fill: currentColor;
-    transition: color .2s;
-}
-
-#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next:hover,
-#landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev:hover {
-    color: var(--ds-secondary);
-}
-
-/* Slider Testimoni Otomatis */
 #landingpage-edukrein .testimoni-marquee-section {
   padding: 2.5rem 0;
   background-color: var(--ds-primary);
-  border-top: 1px solid var(--ds-border-color);
-  border-bottom: 1px solid var(--ds-border-color);
-  overflow: hidden;
-}
-
-#landingpage-edukrein .swiper-testimoni-marquee .swiper-slide {
-    height: auto;
-}
-
-#landingpage-edukrein .testi-card-marquee {
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem;
-  background-color: var(--ds-body-bg);
-  border-radius: var(--ds-border-radius-lg);
-  box-shadow: var(--ds-box-shadow);
-  border-left: 4px solid var(--ds-secondary);
-  height: 100%;
-}
-
-#landingpage-edukrein .testi-card-marquee .testi-quote {
-  font-size: 0.95rem;
-  color: var(--ds-body-color);
-  padding-left: 0;
-  margin-bottom: 1rem;
-  font-style: normal;
-  white-space: normal;
-  flex-grow: 1;
-}
-
-#landingpage-edukrein .testi-card-marquee .testi-quote::before {
-  display: none;
-}
-
-#landingpage-edukrein .testi-card-marquee .testi-user img {
-  width: 35px;
-  height: 35px;
-}
-
-#landingpage-edukrein .testi-card-marquee .testi-name {
-  color: var(--ds-body-color);
-  font-size: 0.9rem;
-}
-
-#landingpage-edukrein .testi-card-marquee .testi-job {
-  font-size: 0.8rem;
-  color: var(--ds-tertiary-color);
-}
-
-/* 11. Kontak Section */
-#landingpage-edukrein .kontak-section {
-  padding: 5rem 0;
-  background-color: var(--ds-tertiary-bg);
-}
-
-#landingpage-edukrein .contact-info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-#landingpage-edukrein .contact-info-item .icon-wrapper {
-  flex-shrink: 0;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: var(--ds-primary-bg-subtle);
-  color: var(--ds-primary-text-emphasis);
-}
-
-#landingpage-edukrein .contact-info-item .svg-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-#landingpage-edukrein .social-icon {
-  color: var(--ds-body-color);
-  transition: color .2s, transform .2s;
-}
-
-#landingpage-edukrein .social-icon:hover {
-  color: var(--ds-primary);
-  transform: translateY(-3px);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 /* 12. Statistik Section */
@@ -668,10 +211,10 @@ body {
 
 #landingpage-edukrein .stat-item {
   display: flex;
-  flex-direction: column; /* Mengubah arah flex untuk tumpukan responsif */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem; /* Memberi jarak antara ikon dan konten */
+  gap: 0.5rem;
 }
 
 #landingpage-edukrein .stat-icon {
@@ -685,11 +228,9 @@ body {
   animation: float-anim 4s ease-in-out infinite;
 }
 
-/* Menambahkan delay animasi yang berbeda untuk setiap ikon */
 #landingpage-edukrein .stat-item:nth-child(2) .svg-icon { animation-delay: 0.3s; }
 #landingpage-edukrein .stat-item:nth-child(3) .svg-icon { animation-delay: 0.6s; }
 #landingpage-edukrein .stat-item:nth-child(4) .svg-icon { animation-delay: 0.9s; }
-
 
 #landingpage-edukrein .stat-number {
   font-family: 'Nunito', sans-serif;
@@ -704,10 +245,9 @@ body {
   font-size: 0.9rem;
   opacity: 0.8;
   position: relative;
-  min-height: 1.2em; /* Mencegah layout jumping saat teks diketik */
+  min-height: 1.2em; /* Mencegah layout jumping */
 }
 
-/* Efek kursor mengetik */
 #landingpage-edukrein .stat-text::after {
   content: '▋';
   position: absolute;
@@ -717,12 +257,10 @@ body {
   animation: blink-anim 1s infinite;
 }
 
-/* Menghilangkan kursor setelah selesai mengetik */
 #landingpage-edukrein .stat-text.typing-done::after {
   display: none;
 }
 
-/* Keyframes untuk animasi */
 @keyframes float-anim {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -733,34 +271,12 @@ body {
   50% { opacity: 0; }
 }
 
-/* === RESPONSIVE ADJUSTMENTS === */
-@media (max-width: 991.98px) {
-  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-next,
-  #landingpage-edukrein .swiper-testimoni-wrapper .swiper-button-prev {
-    display: none;
-  }
- 
-  #landingpage-edukrein .testimoni-section {
-    padding: 3rem 0;
-  }
-}
-
 @media (min-width: 768px) {
   #landingpage-edukrein .stat-item {
-    flex-direction: row; /* Kembali ke tata letak baris di layar yang lebih besar */
-    gap: 1rem; /* Jarak yang lebih besar di desktop */
+    flex-direction: row;
+    gap: 1rem;
   }
   #landingpage-edukrein .stat-content {
       text-align: left;
-  }
-}
-
-@media (min-width: 992px) {
-  #landingpage-edukrein .hero-section {
-    padding-top: 10rem;
-    padding-bottom: 6rem;
-  }
-  #landingpage-edukrein .hero-section .lead {
-    font-size: 1.2rem;
   }
 }
