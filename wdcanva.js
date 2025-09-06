@@ -100,83 +100,78 @@ if (contactForm) {
   });
 }
 
+// 12. Statistik
 
-// ================================================================= Statistik
-document.addEventListener("DOMContentLoaded", () => {
-    
-    const statSection = document.querySelector('.statistik-section');
+document.addEventListener("DOMContentLoaded", function() {
+  const statSection = document.getElementById('statistik');
 
-    // =================================================================
-    // FUNGSI UNTUK ANIMASI EFEK LOTRE/COUNTER
-    // =================================================================
-    const animateCountUp = (el) => {
-        const goal = parseInt(el.dataset.goal, 10);
-        const duration = 2000; // Durasi animasi dalam milidetik
-        let startTime = null;
-
-        const step = (timestamp) => {
-            if (!startTime) startTime = timestamp;
-            
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            const currentValue = Math.floor(progress * goal);
-            
-            el.textContent = currentValue.toLocaleString('id-ID'); // Format angka dengan titik ribuan
-            
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        
-        window.requestAnimationFrame(step);
-    };
-    
-    // =================================================================
-    // FUNGSI UNTUK ANIMASI EFEK MENGETIK
-    // =================================================================
-    const animateTyping = (el) => {
-        const text = el.dataset.text;
-        el.textContent = ''; // Kosongkan teks awal
-        el.style.animation = 'blink-caret .75s step-end infinite'; // Mulai animasi kursor
-
-        let i = 0;
-        const typingInterval = setInterval(() => {
-            if (i < text.length) {
-                el.textContent += text.charAt(i);
-                i++;
-            } else {
-                clearInterval(typingInterval);
-                el.classList.add('typing-done'); // Hapus kursor setelah selesai
-            }
-        }, 100); // Kecepatan mengetik
-    };
-
-
-    // =================================================================
-    // INTERSECTION OBSERVER UNTUK MEMICU ANIMASI SAAT SCROLL
-    // =================================================================
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Tambahkan class untuk memicu animasi CSS (ikon SVG)
-                statSection.classList.add('is-visible');
-
-                // Panggil fungsi animasi untuk setiap elemen
-                const numberElements = statSection.querySelectorAll('.stat-number');
-                const textElements = statSection.querySelectorAll('.stat-text');
-                
-                numberElements.forEach(animateCountUp);
-                textElements.forEach(animateTyping);
-
-                // Hentikan observing setelah animasi berjalan sekali
-                observer.unobserve(entry.target);
-            }
+  // Fungsi untuk memulai animasi hanya jika elemen terlihat
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Ambil semua item statistik dan mulai animasi dengan delay
+        const statItems = entry.target.querySelectorAll('.stat-item');
+        statItems.forEach((item, index) => {
+          setTimeout(() => {
+            const numberEl = item.querySelector('.stat-number');
+            const textEl = item.querySelector('.stat-text');
+            if (numberEl) animateNumber(numberEl);
+            if (textEl) typeText(textEl);
+          }, index * 200); // Delay 200ms antara setiap item
         });
-    }, {
-        threshold: 0.5 // Memicu saat 50% elemen terlihat
+        observer.unobserve(entry.target); // Hentikan observasi setelah animasi dimulai
+      }
     });
+  }, { threshold: 0.5 }); // Trigger saat 50% section terlihat
 
-    // Mulai mengamati section statistik
-    if (statSection) {
-        observer.observe(statSection);
+  if (statSection) {
+    observer.observe(statSection);
+  }
+
+  // Fungsi untuk animasi angka (efek lotere)
+  function animateNumber(element) {
+    const target = parseInt(element.getAttribute('data-target'), 10);
+    const duration = 1500; // Total durasi animasi dalam ms
+    const flickerDuration = 1000; // Durasi efek acak
+    let startTime = null;
+
+    function step(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const progress = currentTime - startTime;
+
+      if (progress < flickerDuration) {
+        // Fase Lotere: Tampilkan angka acak
+        const randomNum = Math.floor(Math.random() * (target + 1));
+        element.innerText = randomNum;
+        requestAnimationFrame(step);
+      } else if (progress < duration) {
+        // Fase Transisi: Menghitung naik ke target
+        const easingProgress = (progress - flickerDuration) / (duration - flickerDuration);
+        const currentNum = Math.floor(easingProgress * target);
+        element.innerText = currentNum;
+        requestAnimationFrame(step);
+      } else {
+        // Fase Akhir: Tampilkan angka final
+        element.innerText = target;
+      }
     }
+    requestAnimationFrame(step);
+  }
+
+  // Fungsi untuk animasi teks (efek mengetik)
+  function typeText(element) {
+    const text = element.getAttribute('data-text');
+    let index = 0;
+    element.innerText = ''; // Kosongkan teks awal
+
+    const typingInterval = setInterval(() => {
+      if (index < text.length) {
+        element.innerText += text.charAt(index);
+        index++;
+      } else {
+        clearInterval(typingInterval);
+        element.classList.add('typing-done'); // Tambah class untuk hapus kursor
+      }
+    }, 50); // Kecepatan mengetik dalam ms
+  }
 });
