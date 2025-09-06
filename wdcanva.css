@@ -653,47 +653,96 @@ body {
 }
 
 /* 12. Statistik Section */
-#landingpage-edukrein .statistik-section {
-  padding: 3rem 0;
+/* Mengambil variabel dari root jika ada, jika tidak, fallback */
+:root {
+    --ds-dark: #0f172a;
+    --ds-white: #ffffff;
+    --ds-secondary: #E67E22;
+}
+
+.statistik-section {
+  padding: 4rem 0;
   background-color: var(--ds-dark);
   color: var(--ds-white);
+  overflow: hidden; /* Mencegah item keluar saat animasi */
 }
 
-#landingpage-edukrein .stat-item {
+.stat-item {
   display: flex;
+  flex-direction: column; /* Ubah arah flex untuk tata letak ikon di atas */
   align-items: center;
   justify-content: center;
+  gap: 1rem; /* Jarak antara ikon dan konten */
 }
 
-#landingpage-edukrein .stat-icon {
-  flex-shrink: 0;
-  font-size: 2rem;
-  margin-right: 1rem;
+/* REVISI: Efek animasi untuk Ikon SVG */
+.stat-icon {
   color: var(--ds-secondary);
 }
 
-#landingpage-edukrein .stat-icon .svg-icon {
-  width: 2.5rem;
-  height: 2.5rem;
+.stat-icon .svg-icon {
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.3s ease-in-out;
 }
 
-#landingpage-edukrein .stat-number {
+/* Tambahkan class .is-visible lewat JS untuk memicu animasi */
+.statistik-section.is-visible .stat-icon .svg-icon {
+  animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px) scale(1.1); }
+  100% { transform: translateY(0); }
+}
+
+.stat-content {
+  text-align: center;
+}
+
+.stat-number {
   font-family: 'Nunito', sans-serif;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
   margin: 0;
   line-height: 1;
+  color: var(--ds-white);
+  /* Mencegah layout bergeser saat angka berubah */
+  font-variant-numeric: tabular-nums;
 }
 
-#landingpage-edukrein .stat-text {
+/* REVISI: Efek animasi mengetik untuk Teks */
+.stat-text {
   margin: 0;
   font-size: 0.9rem;
   opacity: 0.8;
+  margin-top: 0.25rem;
+  position: relative;
+  /* Kursor mengetik */
+  border-right: 2px solid rgba(255, 255, 255, .75);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-/* Penyesuaian di layar kecil */
-@media (max-width: 767.98px) {
-  #landingpage-edukrein .stat-item {
-    justify-content: flex-start; /* Rata kiri di mobile */
-  }
+/* Hapus kursor setelah animasi selesai */
+.stat-text.typing-done {
+    border-right: none;
+}
+
+/* Animasi untuk kursor berkedip */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgba(255, 255, 255, .75); }
+}
+
+/* Penyesuaian responsif */
+@media (min-width: 992px) {
+    .stat-item {
+        flex-direction: row; /* Kembali ke tata letak horizontal di layar besar */
+        text-align: left;
+    }
+    .stat-content {
+        text-align: left;
+    }
 }
