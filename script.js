@@ -92,3 +92,82 @@ document.addEventListener("DOMContentLoaded", function() {
       contactForm.reset();
     });
   }
+
+
+  // 6. FUNGSI UNTUK ANIMASI STATISTIK
+  const statistikSection = document.getElementById('statistik');
+
+  // 1. Fungsi untuk animasi angka (efek lotre)
+  function animateCounter(element) {
+    const target = +element.getAttribute('data-target'); // Ambil target angka
+    const duration = 2000; // Durasi animasi dalam milidetik
+    const frameRate = 1000 / 60; // 60 frame per detik
+    const totalFrames = Math.round(duration / frameRate);
+    let currentFrame = 0;
+
+    const counter = () => {
+      currentFrame++;
+      const progress = currentFrame / totalFrames;
+      const currentValue = Math.round(target * progress); // Kalkulasi angka saat ini
+
+      element.innerText = currentValue.toLocaleString('id-ID'); // Format angka dengan titik ribuan
+
+      if (currentFrame < totalFrames) {
+        requestAnimationFrame(counter);
+      } else {
+        element.innerText = target.toLocaleString('id-ID'); // Pastikan angka akhir tepat
+      }
+    };
+    requestAnimationFrame(counter);
+  }
+
+  // 2. Fungsi untuk animasi teks (efek mengetik)
+  function animateTyping(element) {
+    const text = element.innerText;
+    element.innerText = ''; // Kosongkan teks awal
+    element.classList.add('typing-effect'); // Tambahkan kelas untuk kursor
+    let i = 0;
+    
+    const typing = setInterval(() => {
+      if (i < text.length) {
+        element.innerText += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(typing);
+        // Hapus kursor setelah selesai mengetik setelah jeda singkat
+        setTimeout(() => {
+          element.classList.remove('typing-effect');
+        }, 1000);
+      }
+    }, 75); // Kecepatan mengetik
+  }
+
+  // 3. Setup Intersection Observer
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Tambahkan kelas untuk memicu animasi ikon/item
+        statistikSection.classList.add('is-visible');
+
+        // Jalankan animasi untuk setiap elemen angka dan teks
+        const statNumbers = statistikSection.querySelectorAll('.stat-number');
+        const statTexts = statistikSection.querySelectorAll('.stat-text');
+
+        statNumbers.forEach(num => animateCounter(num));
+        statTexts.forEach(text => animateTyping(text));
+
+        // Hentikan pengamatan setelah animasi berjalan sekali
+        observer.unobserve(statistikSection);
+      }
+    });
+  }, {
+    threshold: 0.5 // Animasi dimulai saat 50% section terlihat
+  });
+
+  // Mulai mengamati section statistik
+  if (statistikSection) {
+    observer.observe(statistikSection);
+  }
+
+  
+});
